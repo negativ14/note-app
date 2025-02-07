@@ -1,0 +1,46 @@
+.
+├── directory_structure.txt
+├── dist
+│   ├── controllers
+│   │   └── auth.controllers.js
+│   ├── index.js
+│   ├── lib
+│   │   └── db.js
+│   ├── middleware
+│   │   └── auth.middleware.js
+│   ├── models
+│   │   └── user.model.js
+│   ├── routes
+│   │   └── auth.route.js
+│   ├── schemas
+│   │   ├── signInSchema.js
+│   │   └── signUpSchema.js
+│   └── types
+│       └── customRequest.js
+├── package-lock.json
+├── package.json
+├── src
+│   ├── controllers
+│   │   └── auth.controllers.ts
+│   ├── index.ts
+│   ├── lib
+│   │   ├── cloudinary.ts
+│   │   └── db.ts
+│   ├── middleware
+│   │   └── auth.middleware.ts
+│   ├── models
+│   │   ├── content.model.ts
+│   │   └── user.model.ts
+│   ├── routes
+│   │   └── auth.route.ts
+│   ├── schemas
+│   │   ├── signInSchema.ts
+│   │   └── signUpSchema.ts
+│   └── types
+│       └── customRequest.ts
+├── structure.txt
+├── tsconfig.json
+├── tsconfig.tsbuildinfo
+└── types.d.ts
+
+16 directories, 27 files
