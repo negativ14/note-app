@@ -1,4 +1,4 @@
-import { useCallback, useState, useMemo } from 'react';
+import { useCallback, useState, useMemo, useEffect } from 'react';
 import { memo } from 'react';
 import Container from '../components/Container'
 import Sidebar from '../components/Sidebar'
@@ -9,6 +9,8 @@ import NoteModel from '../components/NoteModel';
 import FloatingActionButton from '../components/FloatingActionButton';
 import CreateNote from '../components/CreateNote';
 import CreateVoiceNote from '../components/CreateVoiceNote';
+import { useAuthStore } from '../store/useAuthStore';
+import { Loader2 } from 'lucide-react';
 
 const SearchBarMemo = memo(SearchBar);
 const SidebarMemo = memo(Sidebar);
@@ -21,6 +23,17 @@ const NoteModelMemo = memo(NoteModel);
 const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { getContent, openModel, noteModel, voiceNoteModel } = useContentStore();
+  const { checkAuth, authUser } = useAuthStore();
+
+  useEffect(() => {
+    checkAuth();
+  }, [])
+
+  if (!authUser) {
+    return <div className="flex justify-center items-center absolute inset-0">
+      <Loader2 size={40} className="animate-spin" />
+    </div>
+  }
 
   const debouncedGetContent = useDebouncedCallback((term) => {
     getContent(term);

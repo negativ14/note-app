@@ -2,7 +2,6 @@ import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import Dashboard from "./pages/Dashboard";
-import ShareLinkNote from "./pages/ShareLinkNote";
 import { useAuthStore } from "./store/useAuthStore";
 import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
@@ -28,7 +27,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/dashboard" element={authUser ? <Dashboard /> : <Navigate to='/signin' />} />
-        <Route path="/note/:shareLink" element={<ShareLinkNote/>}/>
+        {/* <Route path="/note/:shareLink" element={<ShareLinkNote/>}/> */}
       </Routes>
       <Toaster/>
       </BrowserRouter>

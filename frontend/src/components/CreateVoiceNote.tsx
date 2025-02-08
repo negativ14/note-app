@@ -128,51 +128,6 @@ const CreateVoiceNote = memo(() => {
         setVoiceNoteModel(false);
     }, [title, mediaBlobUrl, transcription, timer, authUser, notes, uploadAudio, createCard, getContent, setVoiceNoteModel]);
 
-    // // Function to convert .webm file to .mp3 using the MediaRecorder API
-    // const convertWebmToMp3 = async (webmFile: Blob) => {
-    //     return new Promise((resolve, reject) => {
-    //         const audioContext = new (window.AudioContext || window.AudioContext)();
-    //         const reader = new FileReader();
-    //         reader.onload = async (e) => {
-    //             try {
-    //                 const arrayBuffer = e.target?.result as ArrayBuffer;
-    //                 const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
-
-    //                 // Create a MediaRecorder to capture the audio output as an MP3
-    //                 const mediaStream = audioContext.createMediaStreamDestination();
-    //                 const mediaRecorder = new MediaRecorder(mediaStream.stream);
-    //                 const chunks: BlobPart[] | undefined = [];
-
-    //                 mediaRecorder.ondataavailable = (event) => {
-    //                     chunks.push(event.data);
-    //                 };
-
-    //                 mediaRecorder.onstop = () => {
-    //                     const mp3Blob = new Blob(chunks, { type: 'audio/mp3' });
-    //                     const mp3File = new File([mp3Blob], "converted_audio.mp3", { type: 'audio/mp3' });
-    //                     resolve(mp3File);
-    //                 };
-
-    //                 // Start recording
-    //                 mediaRecorder.start();
-
-    //                 // Start playing the audio so it can be captured by the MediaRecorder
-    //                 const source = audioContext.createBufferSource();
-    //                 source.buffer = audioBuffer;
-    //                 source.connect(mediaStream);
-    //                 source.start(0);
-    //                 source.onended = () => mediaRecorder.stop();
-    //             } catch (err) {
-    //                 reject(err);
-    //             }
-    //         };
-
-    //         reader.onerror = reject;
-    //         reader.readAsArrayBuffer(webmFile);
-    //     });
-    // };
-
-
 
     return (
         <div>
